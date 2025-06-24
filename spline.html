@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Spline Viewer with Scroll Effect</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Container untuk menampung 3D Spline Viewer */
+      #spline-container {
+        height: 100vh; /* Menggunakan 100% dari tampilan awal */
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Konten tambahan untuk scroll */
+      .content {
+        height: 300vh; /* Lebih besar dari tinggi layar untuk memastikan ada scroll */
+        padding: 20px;
+        background: #f1f1f1;
+      }
+
+      h1 {
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      /* Animasi scroll untuk memutar objek */
+      #scroll-effect {
+        transition: transform 0.1s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Kontainer untuk 3D Spline Viewer -->
+    <div id="spline-container">
+      <script
+        type="module"
+        src="https://unpkg.com/@splinetool/viewer@1.10.13/build/spline-viewer.js"
+      ></script>
+      <spline-viewer
+        id="scroll-effect"
+        url="https://prod.spline.design/EfcrI5tYc0WSnZMf/scene.splinecode"
+      ></spline-viewer>
+    </div>
+
+    <!-- Konten tambahan untuk scroll -->
+    <div class="content">
+      <h1>Scroll Down to See the Effect</h1>
+      <p>
+        Scroll down the page to see the 3D object rotate based on scroll
+        position. You can add more content here to make the page longer.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pharetra
+        felis ut urna cursus, eu iaculis felis fermentum. Vivamus imperdiet est
+        a massa euismod, ac suscipit libero laoreet. Aliquam erat volutpat.
+        Vestibulum congue quam at augue feugiat, ac pharetra libero interdum.
+        Duis sit amet libero nec eros dapibus pharetra. Nam at augue purus.
+        Nulla ac euismod elit.
+      </p>
+      <p>... (more paragraphs) ...</p>
+    </div>
+
+    <script>
+      // Mengambil elemen Spline Viewer dan mendeteksi scroll
+      const splineViewer = document.getElementById("scroll-effect");
+
+      window.addEventListener("scroll", () => {
+        // Menghitung seberapa jauh halaman telah digulir
+        let scrollPosition = window.scrollY;
+        let rotationValue = scrollPosition * 0.1; // Sesuaikan dengan kecepatan rotasi yang diinginkan
+
+        // Menerapkan rotasi ke objek 3D
+        splineViewer.style.transform = `rotate(${rotationValue}deg)`;
+      });
+    </script>
+  </body>
+</html>
