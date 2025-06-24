@@ -68,6 +68,7 @@ var Fake = [
   "udah pasti. harus lebih gemesiiiiin ahahaha",
   "Apa lagi ya... udah si itu aja.. oh iya, jangan terlalu sering begadang. gabaik tauuuuuuk. apalagi kalau udah jam 2 pagi, mending tidurrrr",
   "diminum atuh obat nyaaa.. ntar pileknya ga sembuh sembuh",
+  "maaaa. liat fanny dia gamau miunum obat, padahal pilek udah 2 minggu ( ucap ku sok tau ) ",
   "sama sama terus yak kitaaa.. awas aja ninggalin. hihhh.. nanti aku gentayanginnn. ahaha becanda. kan aku masi idup",
   "ehemmm.... anuuu. kamu kan udah 19 tahun, jadi udah boleh afin kan? wkwkwk",
   "aku beruntung banget bisa ketemu kamuu tauuu",
