@@ -54,18 +54,95 @@ $(".mixer").click(function () {
   }
 });
 
-$(".tin").draggable({
-  revert: true,
-});
-$(".oven").droppable({
-  drop: function (event, ui) {
-    $(".stage3").fadeOut();
-    fire_modal(
-      "https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/oven_modal.png",
-      "Kue udah siap dipanggang!",
-      "Wah kamuu jago. liat tu.. kue nya keliatan enak banget.. eiiits belum selese. sekarang kita kasi toping"
-    );
-  },
+// $(".tin").draggable({
+//   revert: true,
+// });
+// $(".oven").droppable({
+//   drop: function (event, ui) {
+//     $(".stage3").fadeOut();
+//     fire_modal(
+//       "https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/oven_modal.png",
+//       "Kue udah siap dipanggang!",
+//       "Wah kamuu jago. liat tu.. kue nya keliatan enak banget.. eiiits belum selese. sekarang kita kasi toping"
+//     );
+//   },
+// });
+// Cek apakah perangkat mendukung touch
+var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
+
+// Fungsi untuk drag-and-drop pada perangkat desktop
+function enableDesktopDrag() {
+  $(".tin").draggable({
+    revert: true,
+  });
+
+  $(".oven").droppable({
+    drop: function (event, ui) {
+      $(".stage3").fadeOut();
+      fire_modal(
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/oven_modal.png",
+        "Kue udah siap dipanggang!",
+        "Wah kamuu jago. liat tu.. kue nya keliatan enak banget.. eiiits belum selese. sekarang kita kasi toping"
+      );
+    },
+  });
+}
+
+// Fungsi untuk drag-and-drop pada perangkat mobile
+function enableMobileTouch() {
+  $(".tin").on("touchstart", function (e) {
+    var touch = e.originalEvent.touches[0];
+    var offsetX = touch.pageX - $(this).offset().left;
+    var offsetY = touch.pageY - $(this).offset().top;
+
+    $(this).on("touchmove", function (e) {
+      var touch = e.originalEvent.touches[0];
+      $(this).css({
+        top: touch.pageY - offsetY,
+        left: touch.pageX - offsetX,
+      });
+    });
+
+    $(this).on("touchend", function () {
+      $(this).off("touchmove touchend");
+      // Handle drop action here
+      if (isInOven($(this))) {
+        $(".stage3").fadeOut();
+        fire_modal(
+          "https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/oven_modal.png",
+          "Kue udah siap dipanggang!",
+          "Wah kamuu jago. liat tu.. kue nya keliatan enak banget.. eiiits belum selese. sekarang kita kasi toping"
+        );
+      }
+    });
+  });
+}
+
+// Fungsi untuk memeriksa apakah gambar kue sudah masuk ke dalam oven
+function isInOven(element) {
+  var oven = $(".oven");
+  var ovenOffset = oven.offset();
+  var ovenWidth = oven.width();
+  var ovenHeight = oven.height();
+  var elementOffset = element.offset();
+
+  return (
+    elementOffset.left >= ovenOffset.left &&
+    elementOffset.top >= ovenOffset.top &&
+    elementOffset.left + element.width() <= ovenOffset.left + ovenWidth &&
+    elementOffset.top + element.height() <= ovenOffset.top + ovenHeight
+  );
+}
+
+// Panggil fungsi berdasarkan apakah perangkat mendukung touch atau tidak
+$(document).ready(function () {
+  if (isTouchDevice) {
+    // Aktifkan drag-and-drop untuk perangkat mobile
+    enableMobileTouch();
+  } else {
+    // Aktifkan drag-and-drop untuk desktop
+    enableDesktopDrag();
+  }
 });
 
 bases = 0;
