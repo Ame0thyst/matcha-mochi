@@ -78,6 +78,7 @@ var Fake = [
   "maluuu..., kan aku cowo keren, masa curhat",
   "tapi gapapa deh, kan ini hari spesial kamu",
   "sekali lagi, selamat ulang tahun yaa cantikkuu",
+  "cant wait to make more memories with you",
   "Byee. sudah bole klik tombol 'selesai' ya",
 ];
 
