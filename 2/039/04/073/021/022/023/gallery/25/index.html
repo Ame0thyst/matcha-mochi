@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Last word maybe?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1a1a1a;
+        color: #f2f2f2;
+        overflow: hidden;
+        font-family: "Caveat", serif;
+      }
+
+      .container {
+        text-align: center;
+        padding: 2rem;
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .text-container {
+        min-height: 120px;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .text {
+        font-size: 2rem;
+        line-height: 1.5;
+        opacity: 0;
+        transition: opacity 1s;
+      }
+
+      .text.visible {
+        opacity: 1;
+      }
+
+      .text span {
+        opacity: 0;
+        display: inline-block;
+        transition: opacity 0.3s;
+        margin-right: 8px; /* Menambahkan jarak antar kata */
+      }
+
+      .text span.visible {
+        opacity: 1;
+      }
+
+      .buttons-container {
+        margin-top: 2rem;
+        display: none; /* Sembunyikan awalnya */
+        gap: 20px;
+      }
+
+      .button {
+        padding: 12px 24px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #f2f2f2;
+        font-family: "Playwrite MX Guides", serif;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        backdrop-filter: blur(5px);
+      }
+
+      .button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .button.restart {
+        background-color: rgba(99, 123, 152, 0.2);
+      }
+
+      .button.next {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .button.next svg {
+        margin-left: 8px;
+      }
+
+      .rain {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .drop {
+        position: absolute;
+        width: 2px;
+        background-color: rgba(174, 194, 224, 0.5);
+        top: -50px;
+        animation: fall linear infinite;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(100vh);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="background-music" autoplay>
+      <source src="assets/sadsong.mp3" type="audio/mpeg" />
+    </audio>
+    <div class="rain" id="rain"></div>
+    <div class="container">
+      <div class="text-container">
+        <div class="text" id="text"></div>
+      </div>
+      <div class="buttons-container" id="buttons">
+        <button class="button restart" id="restart-button">Mulai Ulang</button>
+        <button class="button next" id="next-button">
+          Lanjut
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const container = document.querySelector(".container");
+        const cat = document.querySelector(".cat");
+
+        function moveCat() {
+          // Menghitung posisi acak di dalam container
+          const x = Math.random() * (container.offsetWidth - cat.offsetWidth);
+          const y = Math.random() * (container.offsetHeight - cat.offsetHeight);
+
+          // Mengatur posisi kucing
+          cat.style.left = x + "px";
+          cat.style.top = y + "px";
+        }
+
+        // Panggil fungsi moveCat setiap 3 detik
+        setInterval(moveCat, 3000);
+      });
+      // Select the audio element
+      var audio = document.getElementById("background-music");
+
+      // Function to restart audio when it ends
+      function restartAudio() {
+        audio.currentTime = 0; // Restart from the beginning
+        audio.play(); // Start playing again
+      }
+
+      // Event listener to restart audio when it ends
+      audio.addEventListener("ended", function () {
+        restartAudio();
+      });
+    </script>
+    <script>
+      // Array kata-kata kesedihan
+      const sadTexts = [
+        "halo...",
+        "ini aku ...",
+        "iya, aku lagi",
+        "aku kangen kamu tauu... ",
+        " Gimana kabar kamu?",
+        "sehat kan..?",
+        " tidurnya udah teratur kan?",
+        "jangan dengerin orang.",
+        "tetap lakuin hal yang kamu suka.",
+        "tapi., hati hatilah dalam betutur kata.",
+        "jangan sembarangan memberi privasi kamu",
+        "foto, vidio, atau apapun itu..",
+        "carilah teman yang bisa membangun kamu",
+        "dan di sekolah nya nanti.., berlajar yang rajin ya",
+        "mungkinn kamu bakal bosan..,",
+        "tapi kamu gabakal nyesel kok nantinya",
+        "dan untuk orang  yang bersama kamu sekarang.., ",
+        "semoga kalian bisa selalu bersama",
+        "karena aku yakin, nanti kamu bakal ngerasain indahnya dicintai sebegitu dalam",
+        "dan mungkin kamu bakal exited tanpa perlu diminta",
+        "Tapi., jangan lupa sama aku ya..",
+        "bahkan kalau waktu diulang, aku bakal tetep milih kamu",
+        "bakal tetep milih kamu",
+        "bakal tetep berusaha buat kamu",
+        "mungkin aku yang sekarang ini bukan yang terbaik buat kamu",
+        "jadi., aku bakal pergi",
+        "engga untuk ninggalin kamu",
+        "tapi agar nanti ketika kita bertemu lagi",
+        "Kamu bisa bangga sama aku.",
+        "dan bisa bilang, 'dia cowoku'",
+        "semoga., kamu dikelilingi oleh orang-orang yang baik",
+        "buat yang terakhir",
+        "aku mau bilang",
+        "aku sayang kamu Chelsea Aprilia Putri",
+        "Dan aku gapernah sekalipun, menaruh rasa benci ke kamu",
+        "maaf atas kegagalan aku dalam ngejaga kamu",
+        "Terimakasih untuk semuanya. dan selamat ulang tahun",
+        "sampai jumpa lagi di ulang tahun kamu berikutnya",
+        "i love u sayangku ^^",
+      ];
+
+      let cycleActive = true;
+
+      // Buat efek hujan
+      function createRain() {
+        const rainContainer = document.getElementById("rain");
+        const dropCount = 100;
+
+        for (let i = 0; i < dropCount; i++) {
+          const drop = document.createElement("div");
+          drop.className = "drop";
+
+          // Posisikan secara acak
+          const left = Math.random() * 100;
+          const height = Math.random() * 30 + 10;
+          const opacity = Math.random() * 0.3 + 0.2;
+          const animationDuration = Math.random() * 1 + 0.5;
+          const animationDelay = Math.random() * 5;
+
+          drop.style.left = `${left}%`;
+          drop.style.height = `${height}px`;
+          drop.style.opacity = opacity;
+          drop.style.animationDuration = `${animationDuration}s`;
+          drop.style.animationDelay = `${animationDelay}s`;
+
+          rainContainer.appendChild(drop);
+        }
+      }
+
+      // Menampilkan teks kata per kata
+      function displayTextWordByWord(text) {
+        return new Promise((resolve) => {
+          const textContainer = document.getElementById("text");
+          textContainer.innerHTML = "";
+          textContainer.classList.remove("visible");
+
+          // Pisahkan kalimat menjadi kata-kata
+          const words = text.split(" ");
+
+          // Buat span untuk setiap kata
+          words.forEach((word, wordIndex) => {
+            const wordSpan = document.createElement("span");
+            wordSpan.innerHTML = word;
+            wordSpan.classList.add("word");
+            textContainer.appendChild(wordSpan);
+          });
+
+          // Tampilkan container teks
+          setTimeout(() => {
+            textContainer.classList.add("visible");
+
+            // Tampilkan kata per kata dengan efek
+            const wordSpans = document.querySelectorAll(".word");
+            wordSpans.forEach((span, index) => {
+              setTimeout(() => {
+                span.classList.add("visible");
+              }, index * 400); // Jarak antar kata 400ms
+            });
+
+            // Selesai menampilkan teks ini
+            setTimeout(() => {
+              resolve();
+            }, words.length * 400 + 2000); // Tambahkan delay agar kalimat terakhir terlihat
+          }, 500);
+        });
+      }
+
+      // Fungsi utama untuk bergantian teks
+      async function cycleTexts() {
+        let currentIndex = 0;
+
+        while (cycleActive) {
+          await displayTextWordByWord(sadTexts[currentIndex]);
+
+          // Cek apakah sedang dalam siklus aktif
+          if (!cycleActive) break;
+
+          // Tunggu sebelum menghapus dan menampilkan teks berikutnya
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+
+          // Ubah opacity menjadi 0 sebelum menampilkan teks berikutnya
+          document.getElementById("text").classList.remove("visible");
+
+          // Tunggu transisi selesai
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+
+          // Pindah ke teks berikutnya
+          currentIndex = (currentIndex + 1) % sadTexts.length;
+
+          // Jika sudah menampilkan semua teks, tampilkan tombol
+          if (currentIndex === 0) {
+            showButtons();
+            cycleActive = false;
+            break;
+          }
+        }
+      }
+
+      // Tampilkan tombol setelah semua teks ditampilkan
+      function showButtons() {
+        const buttonsContainer = document.getElementById("buttons");
+        buttonsContainer.style.display = "flex";
+
+        // Atur fungsi tombol restart
+        document
+          .getElementById("restart-button")
+          .addEventListener("click", () => {
+            buttonsContainer.style.display = "none";
+            cycleActive = true;
+            cycleTexts();
+          });
+
+        // Atur fungsi tombol lanjut
+        document.getElementById("next-button").addEventListener("click", () => {
+          // Arahkan ke halaman berikutnya
+          // alert("Mengarahkan ke halaman berikutnya...");
+          // Ganti dengan kode untuk navigasi ke halaman berikutnya
+          window.location.href = "26/index.html";
+        });
+      }
+
+      // Jalankan saat halaman dimuat
+      document.addEventListener("DOMContentLoaded", () => {
+        createRain();
+        cycleTexts();
+      });
+    </script>
+  </body>
+</html>
