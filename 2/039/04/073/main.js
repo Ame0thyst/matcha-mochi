@@ -70,6 +70,13 @@ var Fake = [
   "diminum atuh obat nyaaa.. ntar pileknya ga sembuh sembuh",
   "sama sama terus yak kitaaa.. awas aja ninggalin. hihhh.. nanti aku gentayanginnn. ahaha becanda. kan aku masi idup",
   "ehemmm.... anuuu. kamu kan udah 19 tahun, jadi udah boleh afin kan? wkwkwk",
+  "aku beruntung banget bisa ketemu kamuu tauuu",
+  "walau kadang jarang nanyain tentang aku tapi kamu hampir selalu ada buat aku",
+
+  "ihh kok malah jadi curhat sih ini",
+  "maluuu..., kan aku cowo keren, masa curhat",
+  "tapi gapapa deh, kan ini hari spesial kamu",
+  "sekali lagi, selamat ulang tahun yaa cantikkuu",
   "Byee. sudah bole klik tombol 'selesai' ya",
 ];
 
