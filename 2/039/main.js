@@ -9,7 +9,7 @@ var UserStatus;
 })(UserStatus || (UserStatus = {}));
 var Default;
 (function (Default) {
-  Default["PIN"] = "180225";
+  Default["PIN"] = "164419";
 })(Default || (Default = {}));
 
 const N = {
@@ -134,7 +134,7 @@ const Reminder = () => {
     React.createElement(
       "span",
       { className: "reminder-text" },
-      "Halo Cangtipku Cilaa ✨, sinii.. tekan di bawah ini ! ",
+      "Halo Cangtipku fannnnyy ✨, sinii.. tekan di bawah ini ! ",
       React.createElement("span", { className: "reminder-time" }, "0.0 AM")
     )
   );
@@ -288,7 +288,7 @@ const Pin = () => {
     React.createElement(
       "h3",
       { id: "app-pin-label" },
-      "Tgl jadian kita ( Tgl - Bln - Thn ) ✨ ",
+      "folowing tt aku + kamu + umur kamu malam ini ✨ ",
       getErrorText(),
       " ",
       getCancelText()

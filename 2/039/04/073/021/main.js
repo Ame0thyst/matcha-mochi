@@ -6,7 +6,7 @@ var w = c.width = window.innerWidth,
 		hh = h / 2,
 		
 		opts = {
-			strings: [ 'HAPPY', 'BIRTHDAY!','CILA SAYANG' ],
+			strings: [ 'HAPPY', 'BIRTHDAY!','FANY CANTIK' ],
 			charSize: 60,
 			charSpacing: 55,
 			lineHeight: 60,
@@ -367,7 +367,7 @@ function createNextButton() {
   
   // Buat elemen tombol
   var button = document.createElement('button');
-  button.innerHTML = 'Lanjut ke Halaman Berikutnya';
+  button.innerHTML = 'tekan aku 😋';
   button.id = 'nextPageButton';
   
   // Styling tombol

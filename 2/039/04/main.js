@@ -2,8 +2,8 @@ $(".start").click(function () {
   $(".stage1").fadeOut();
   fire_modal(
     "https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/cake_modal.png",
-    "Cila Sayang..ayo bikin kue :)",
-    "Happy birthday yang ke 15 th yaaa.. ciee dah tambah tambah nihhh, ayo bikin kuee "
+    "Nona Fany yang lucuuk ..ayo bikin kue :)",
+    "Happy birthday yang ke 19 th yaaa.. ciee dah tambah tambah nihhh, sini bikin kuee "
   );
 });
 
@@ -49,7 +49,7 @@ $(".mixer").click(function () {
     fire_modal(
       "https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/mix_modal.png",
       "Bahan selesai di campur !",
-      "Selamat Cila sayang 🔥, kmu udah nyampurin dengan sempurna. nah sekarang ayo kita oven."
+      "Selamat wahai sepuh gold lane 🔥, kmu udah nyampurin dengan sempurna. nah sekarang ayo kita oven."
     );
   }
 });

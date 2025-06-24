@@ -56,18 +56,20 @@ $(window).on("keydown", function (e) {
 });
 
 var Fake = [
-  "Halo Sayangku .. apa kabar?",
-  "Udah bobo belum nih? apa sekarang uda siang",
-  "Pasti ngira kalau aku bakal lupa kannnn.. kwkwkw",
-  "Sebenernya au belum siap ngerjain ini... jadi gaenak kalau cuma ngucapi Happy birthday aja. apalagi lewat ML doang",
+  "Halo Princess .. apa kabar?",
+  "Udah bobo belum nih? pasti belom",
+  "pasti lagi push rank ya? wkwkwk",
+  "Sebenernya au belum siap ngerjain ini... jadi gaenak kalau cuma ngucapi Happy birthday aja. apalagi lewat ML doang dan wa doang",
   "Gimana.. kamu suka ga kue yang aku bikin, eh. kamu yang bikin maksudnya kwkw",
-  "Selamat Ulang tahun ya cantikkuu   wkwkkw. semoga segalanya dilancarkan, dapet yang terbaik dan makin sabarrrrrrrrr. apalagi kalau abis WL WL di game ",
-  "eh eh.., dan juga.. selamat anniversary  yang ke 2 bulan yaa.. semoga kita makin kompak, makin saling mengerti, dan makin saling support satu sama lain",
+  "Selamat Ulang tahun ya cantikkuu   wkwkkw. semoga segalanya dilancarkan, dapet tim pt an yang terbaik dan makin sabarrrrrrrrr. apalagi kalau abis WL WL di game ",
+  "eh eh.., dan juga..api tik tok yang ke 46 ya kwkww.. semoga kita makin kompak, makin saling mengerti, dan makin saling support satu sama lain",
   "Juga semoga dengan bertambahnya umur kamu, semoga kamu makin dikuatkan dengan semuanya",
   "semoga kamu bisa lebih sabar, lebih dewasa, lebih bijaksana, dan lebih baik lagi dari sebelumnya",
+  "udah pasti. harus lebih gemesiiiiin ahahaha",
   "Apa lagi ya... udah si itu aja.. oh iya, jangan terlalu sering begadang. gabaik tauuuuuuk. apalagi kalau udah jam 2 pagi, mending tidurrrr",
-  "jangan ngomong kasar kasar yaah. ntah kesiapapun itu, kalau udah di puncaknya.. mending pergi aja. okayy ^_^",
+  "diminum atuh obat nyaaa.. ntar pileknya ga sembuh sembuh",
   "sama sama terus yak kitaaa.. awas aja ninggalin. hihhh.. nanti aku gentayanginnn. ahaha becanda. kan aku masi idup",
+  "ehemmm.... anuuu. kamu kan udah 19 tahun, jadi udah boleh afin kan? wkwkwk",
   "Byee. sudah bole klik tombol 'selesai' ya",
 ];
 
